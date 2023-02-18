@@ -13,25 +13,26 @@ mountainFile.close()
 
 
 # Open commonVerbs file and putting it into a list
-verbsFile = open("commonVerbs.txt", "r")
+wordsFile = open("commonWords.txt", "r")
 
-verbsData = verbsFile.read()
+wordsData = wordsFile.read()
 
-verbsData_into_list = verbsData.split("\n")
+wordsData_into_list = wordsData.split("\n")
 
-verbsFile.close()
+wordsFile.close()
 
 
 user = input("Enter a phrase: ").lower().split(" ")
-index = 0;
 
 for index, words in enumerate(user):
-    if words in verbsData_into_list:
-        print("found")
+    if words in wordsData_into_list:
         newWord = random.choice(mountainData_into_list)
-        print(newWord)
         user[index] = newWord
-        print("changing ",words, "into ", newWord)
+
+
+returnString = " ".join(user)
+
+user = returnString
 
 print(user)
 
