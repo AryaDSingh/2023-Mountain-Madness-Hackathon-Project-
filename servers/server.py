@@ -2,16 +2,18 @@
 import os
 from socket import *
 host = " "
-port = 130000
-buf = 1024
-address = (host, port)
+port = 13000
+buf = 2048
 UDPSock = socket(AF_INET, SOCK_DGRAM)
-UDPSock.bind(address)
+UDPSock.bind(('',port))
 print("Waiting to receive messages...")
 while True:
-    (data, address) =  UDPSock.recv(buf)
-    print("received message: " +data)
-    if(data == "exit"):
+    message, clientAddresss =  UDPSock.recvfrom(buf)
+    #translate the message back into english
+    modifiedMessage = message.decode()
+    print("Message received: "+modifiedMessage)
+    UDPSock.sendto(modifiedMessage.encode(), clientAddresss)
+    if message == "exit":
         break
 
 UDPSock.close()

@@ -2,6 +2,7 @@
 # word from a text file
 import json
 
+
 '''
 # Open the mountainWords file and putting it into a list
 mountainFile = open("MountainWords.txt", "r")
@@ -23,6 +24,7 @@ wordsData_into_list = wordsData.split("\n")
 wordsFile.close()
 '''
 
+# opent the dictionary file
 wordFile = open("testDict.txt", "r")
 
 wordData = wordFile.read().strip(" ")
@@ -31,23 +33,36 @@ words_into_dict = wordData.splitlines()
 
 wordFile.close()
 
-#print(words_into_dict)
-
 # create a list from the .txt file
 def listToDict(newList):
     it = iter(newList)
     res_dict = dict(zip(it, it))
     return res_dict
 
+# dictionary
 translatedDict = listToDict(words_into_dict)
 
 
-# get the user input for testing purposes
-user = input("Enter a phrase: ")
+# Inverse dictionary
+reverseDict = dict(map(reversed, translatedDict.items()))
 
+# translate the english into mountain
+def englishToMoutain(user):
+    temp = user.split(" ")
+    returnUser = []
+    for words in temp:
+        returnUser.append(translatedDict.get(words,words))
 
-# change the word with the corresponding word in the dictionary
-for words, translated in translatedDict.items():
-    user = user.replace(words, translated)
+    returnUser = " ".join(returnUser)
+    return returnUser
 
-print(user)
+# translate mountain into english
+def mountainToEnglish(user):
+    temp = user.split(" ")
+    returnUser = []
+    for words in temp:
+        returnUser.append(reverseDict.get(words,words))
+
+    returnUser = " ".join(returnUser)
+    return returnUser
+
