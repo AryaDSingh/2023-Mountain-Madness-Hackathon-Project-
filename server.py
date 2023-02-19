@@ -16,7 +16,7 @@ while True:
     message, clientAddresss =  UDPSock.recvfrom(buf)
     
     # Translate the message from English to Mountain
-    modifiedMessage = translator.englishToMoutain(message.decode())
+    modifiedMessage = translator.englishToMountain(message.decode())
     
     print("Message received: " + modifiedMessage)
     

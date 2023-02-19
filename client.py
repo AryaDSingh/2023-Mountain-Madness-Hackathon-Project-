@@ -3,7 +3,7 @@ import os
 from socket import *
 import translator
 
-host = "192.168.100.121"
+host = " " # change to users IP address
 port = 13000
 
 address = (host, port)
@@ -14,7 +14,7 @@ while True:
     message = input("Enter a message or type exit to exit: ")
     
     # Translate the message from English to Mountain
-    translatedMessage = translator.englishToMoutain(message)
+    translatedMessage = translator.englishToMountain(message)
     
     UDPSock.sendto(translatedMessage.encode(), address)
     

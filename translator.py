@@ -25,7 +25,7 @@ translatedDict = listToDict(words_into_dict)
 reverseDict = dict(map(reversed, translatedDict.items()))
 
 # translate the english into mountain
-def englishToMoutain(user):
+def englishToMountain(user):
     temp = user.split(" ")
     returnUser = []
     for words in temp:
