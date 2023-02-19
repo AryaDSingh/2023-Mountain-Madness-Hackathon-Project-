@@ -2,30 +2,8 @@
 # word from a text file
 import json
 
-
-'''
-# Open the mountainWords file and putting it into a list
-mountainFile = open("MountainWords.txt", "r")
-
-mountainData = mountainFile.read()
-
-mountainData_into_list = mountainData.split("\n")
-
-mountainFile.close()
-
-
-# Open commonVerbs file and putting it into a list
-wordsFile = open("commonWords.txt", "r")
-
-wordsData = wordsFile.read()
-
-wordsData_into_list = wordsData.split("\n")
-
-wordsFile.close()
-'''
-
-# opent the dictionary file
-wordFile = open("testDict.txt", "r")
+# open the dictionary file
+wordFile = open("dictionary.txt", "r")
 
 wordData = wordFile.read().strip(" ")
 

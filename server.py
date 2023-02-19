@@ -3,12 +3,12 @@ import os
 from socket import *
 import translator
 
-host = ""
+host = " "
 port = 13000
 buf = 2048
 
 UDPSock = socket(AF_INET, SOCK_DGRAM)
-UDPSock.bind((host, port))
+UDPSock.bind(('', port))
 
 print("Waiting to receive messages...")
 
@@ -22,6 +22,8 @@ while True:
     
     # Translate the message from Mountain to English
     translatedMessage = translator.mountainToEnglish(modifiedMessage)
+
+    print("Message translated: " + translatedMessage)
     
     UDPSock.sendto(translatedMessage.encode(), clientAddresss)
     

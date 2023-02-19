@@ -3,7 +3,7 @@ import os
 from socket import *
 import translator
 
-host = "207.23.174.138"
+host = "192.168.100.121"
 port = 13000
 
 address = (host, port)
@@ -21,9 +21,9 @@ while True:
     modifiedMessage, serverAddress = UDPSock.recvfrom(2048)
     
     # Translate the message from Mountain to English
-    translatedMessage = translator.mountainToEnglish(modifiedMessage.decode())
+    modifiedMessage = translator.mountainToEnglish(modifiedMessage.decode())
     
-    print(translatedMessage)
+    print(modifiedMessage)
     
     if message == "exit":
         break
