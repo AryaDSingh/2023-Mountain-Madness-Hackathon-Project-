@@ -44,3 +44,11 @@ def mountainToEnglish(user):
     returnUser = " ".join(returnUser)
     return returnUser
 
+# used to test more translated words
+'''
+user = input("Enter a phrase: ")
+
+print(englishToMoutain(user))
+user = englishToMoutain(user)
+print(mountainToEnglish(user))
+'''
